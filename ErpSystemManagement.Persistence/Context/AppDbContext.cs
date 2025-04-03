@@ -18,6 +18,7 @@ namespace ErpSystemManagement.Persistence.Context
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Production> Productions { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<RecipeDetail> RecipeDetails { get; set; }
         public DbSet<StockMovement> StockMovements { get; set; }

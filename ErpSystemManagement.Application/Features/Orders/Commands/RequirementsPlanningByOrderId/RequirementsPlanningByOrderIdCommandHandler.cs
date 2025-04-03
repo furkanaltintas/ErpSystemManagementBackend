@@ -27,6 +27,7 @@ class RequirementsPlanningByOrderIdCommandHandler(
         List<RequirementProductDto> requiredProducts = await GetRequiredProducts(order, cancellationToken);
 
         order.Status = "İhtiyaç Planı Çalışıldı";
+        orderRepository.Update(order);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return DomainResult.Success(new RequirementsPlanningByOrderIdCommandResponse(

@@ -19,6 +19,10 @@
     <Folder Include="Features\Orders\Validators\" />
     <Folder Include="Features\Orders\Rules\" />
     <Folder Include="Features\Orders\Constants\" />
+    <Folder Include="Features\Productions\Constants\" />
+    <Folder Include="Features\Productions\Handlers\UpdateProduction\" />
+    <Folder Include="Features\Productions\Validators\" />
+    <Folder Include="Features\Productions\Rules\" />
     <Folder Include="Features\Products\Rules\" />
     <Folder Include="Features\Products\Constants\" />
     <Folder Include="Features\Recipes\Constants\" />

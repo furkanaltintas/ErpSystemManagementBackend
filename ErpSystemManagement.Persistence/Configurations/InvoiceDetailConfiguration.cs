@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ErpSystemManagement.Persistence.Configurations;
 
-class InvoiceConfiguration : IEntityTypeConfiguration<Invoice>
+class InvoiceDetailConfiguration : IEntityTypeConfiguration<InvoiceDetail>
 {
-    public void Configure(EntityTypeBuilder<Invoice> builder)
+    public void Configure(EntityTypeBuilder<InvoiceDetail> builder)
     {
         
     }

@@ -11,5 +11,10 @@ class StockMovementConfiguration : IEntityTypeConfiguration<StockMovement>
         builder.Property(s => s.NumberOfEntries).HasColumnType("decimal(7,2)");
         builder.Property(s => s.NumberOfOutpus).HasColumnType("decimal(7,2)");
         builder.Property(s => s.Price).HasColumnType("money");
+
+        builder
+            .HasOne(r => r.Product)
+            .WithMany()
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

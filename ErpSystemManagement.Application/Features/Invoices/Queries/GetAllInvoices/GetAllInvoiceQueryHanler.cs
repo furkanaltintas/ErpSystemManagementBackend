@@ -14,11 +14,12 @@ class GetAllInvoiceQueryHanler(IInvoiceRepository invoiceRepository) : IRequestH
         List<Invoice> invoices = await invoiceRepository
             .Where(i => i.InvoiceType == ((InvoiceTypeEnum)request.Type).ToString())
             .Include(i => i.Customer)
-            .Include(i => i.Details)!
-            .ThenInclude(id => id.Product)
-            .Include(i => i.Details)!
-            .ThenInclude(id => id.Depot)
+            .Include(i => i.Details)
+                .ThenInclude(id => id.Product)
+            .Include(i => i.Details)
+                .ThenInclude(id => id.Depot)
             .OrderBy(i => i.Date)
+            .AsNoTracking()
             .ToListAsync(cancellationToken);
 
         return DomainResult.Success(invoices);

@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ErpSystemManagement.Persistence.Configurations;
 
-class InvoiceConfiguration : IEntityTypeConfiguration<Invoice>
+class ProductionConfiguration : IEntityTypeConfiguration<Production>
 {
-    public void Configure(EntityTypeBuilder<Invoice> builder)
+    public void Configure(EntityTypeBuilder<Production> builder)
     {
-        
+        builder.Property(p => p.Quantity).HasColumnType("decimal(7,2)");
     }
 }

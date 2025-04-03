@@ -6,7 +6,6 @@ namespace ErpSystemManagement.Application.Features.Invoices.Commands.UpdateInvoi
 
 public record UpdateInvoiceCommand(
     Guid Id,
-    Guid CustomerId,
     DateOnly Date,
     int InvoiceType,
     string InvoiceNumber,

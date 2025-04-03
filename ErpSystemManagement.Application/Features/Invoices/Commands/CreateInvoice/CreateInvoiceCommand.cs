@@ -9,4 +9,5 @@ public record CreateInvoiceCommand(
     int InvoiceType,
     DateOnly Date,
     string InvoiceNumber,
-    List<InvoiceDetailDto> Details) : IRequest<IDomainResult<string>>;
+    List<InvoiceDetailDto> Details,
+    Guid? OrderId) : IRequest<IDomainResult<string>>;

@@ -7,11 +7,31 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ErpSystemManagement.Application.Features.Products.Handlers.GetAllProducts;
 
-public class GetAllProductsQueryHandler(IProductRepository productRepository) : IRequestHandler<GetAllProductsQuery, IDomainResult<IEnumerable<Product>>>
+public class GetAllProductsQueryHandler(
+    IProductRepository productRepository,
+    IStockMovementRepository stockMovementRepository) : IRequestHandler<GetAllProductsQuery, IDomainResult<IEnumerable<GetAllProductsQueryResponse>>>
 {
-    public async Task<IDomainResult<IEnumerable<Product>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
+    public async Task<IDomainResult<IEnumerable<GetAllProductsQueryResponse>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
         IEnumerable<Product> products = await productRepository.GetAll().OrderBy(p => p.Name).ToListAsync(cancellationToken);
-        return DomainResult.Success(products);
+
+        IEnumerable<GetAllProductsQueryResponse> getAllProductsQueryResponses = products.Select(p => new GetAllProductsQueryResponse
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Type = p.Type,
+            Stock = 0
+        }).ToList();
+
+        foreach (GetAllProductsQueryResponse product in getAllProductsQueryResponses)
+        {
+            decimal stock = await stockMovementRepository
+                .Where(s => s.ProductId == product.Id)
+                .SumAsync(s => s.NumberOfEntries - s.NumberOfOutpus);
+
+            product.Stock = stock;
+        }
+
+        return DomainResult.Success(getAllProductsQueryResponses);
     }
 }

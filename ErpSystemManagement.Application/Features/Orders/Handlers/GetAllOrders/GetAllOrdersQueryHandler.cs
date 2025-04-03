@@ -13,10 +13,11 @@ class GetAllOrdersQueryHandler(IOrderRepository orderRepository) : IRequestHandl
     {
         List<Order>? orders = await orderRepository
             .GetAll()
-            .Include(o => o.Customer)
-            .Include(o => o.Details)
+            .Include(o => o.Customer)!
+            .Include(o => o.Details)!
             .ThenInclude(o => o.Product)
             .OrderByDescending(o => o.Date)
+            .AsNoTracking()
             .ToListAsync(cancellationToken);
 
         return DomainResult.Success(orders);
