@@ -1,12 +1,14 @@
 ﻿using DomainResults.Common;
 using ErpSystemManagement.Application.Dtos;
+using ErpSystemManagement.Application.Features.Orders.Commands.RequirementsPlanningByOrderId;
+using ErpSystemManagement.Application.Features.Orders.Responses.RequirementsPlanningByOrderId;
 using ErpSystemManagement.Domain.Entities;
 using ErpSystemManagement.Domain.Repositories;
 using GenericRepository;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ErpSystemManagement.Application.Features.Orders.Commands.RequirementsPlanningByOrderId;
+namespace ErpSystemManagement.Application.Features.Orders.Handlers.RequirementsPlanningByOrderId;
 
 class RequirementsPlanningByOrderIdCommandHandler(
     IOrderRepository orderRepository,

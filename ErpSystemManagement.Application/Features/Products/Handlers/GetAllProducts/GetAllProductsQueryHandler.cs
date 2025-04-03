@@ -1,5 +1,6 @@
 ﻿using DomainResults.Common;
 using ErpSystemManagement.Application.Features.Products.Queries.GetAllProducts;
+using ErpSystemManagement.Application.Features.Products.Responses.GetAllProducts;
 using ErpSystemManagement.Domain.Entities;
 using ErpSystemManagement.Domain.Repositories;
 using MediatR;

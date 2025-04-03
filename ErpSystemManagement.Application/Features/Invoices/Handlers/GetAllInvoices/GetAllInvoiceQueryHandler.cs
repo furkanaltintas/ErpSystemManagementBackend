@@ -1,13 +1,14 @@
 ﻿using DomainResults.Common;
+using ErpSystemManagement.Application.Features.Invoices.Queries.GetAllInvoices;
 using ErpSystemManagement.Domain.Entities;
 using ErpSystemManagement.Domain.Enums;
 using ErpSystemManagement.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace ErpSystemManagement.Application.Features.Invoices.Queries.GetAllInvoices;
+namespace ErpSystemManagement.Application.Features.Invoices.Handlers.GetAllInvoices;
 
-class GetAllInvoiceQueryHanler(IInvoiceRepository invoiceRepository) : IRequestHandler<GetAllInvoiceQuery, IDomainResult<List<Invoice>>>
+class GetAllInvoiceQueryHandler(IInvoiceRepository invoiceRepository) : IRequestHandler<GetAllInvoiceQuery, IDomainResult<List<Invoice>>>
 {
     public async Task<IDomainResult<List<Invoice>>> Handle(GetAllInvoiceQuery request, CancellationToken cancellationToken)
     {
