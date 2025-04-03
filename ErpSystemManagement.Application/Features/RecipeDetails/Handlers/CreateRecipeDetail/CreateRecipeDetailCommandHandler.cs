@@ -17,7 +17,7 @@ class CreateRecipeDetailCommandHandler(
     {
         RecipeDetail? recipeDetail = await recipeDetailRepository
             .GetByExpressionWithTrackingAsync(
-            r => r.RecipeId == request.RecipeId && 
+            r => r.RecipeId == request.RecipeId &&
             r.ProductId == request.ProductId);
 
         if (recipeDetail is not null)

@@ -17,7 +17,6 @@ public class RecipeDetailsController : ApiController
         await HandleRequest(createRecipeDetailCommand, cancellationToken);
 
 
-
     [HttpPost]
     public async Task<IActionResult> Update(UpdateRecipeDetailCommand updateRecipeDetailCommand, CancellationToken cancellationToken) =>
         await HandleRequest(updateRecipeDetailCommand, cancellationToken);

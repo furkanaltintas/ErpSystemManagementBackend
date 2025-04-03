@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-
-namespace ErpSystemManagement.Persistence.Context;
+﻿namespace ErpSystemManagement.Persistence.Context;
 
 //public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 //{

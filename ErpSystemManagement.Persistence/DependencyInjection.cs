@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Scrutor;
+using System.Reflection;
 
 namespace ErpSystemManagement.Persistence;
 
@@ -19,11 +21,15 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetConnectionString("Local"));
         });
 
-        services.AddScoped<ICustomerRepository, CustomerRepository>();
-        services.AddScoped<IDepotRepository, DepotRepository>();
-        services.AddScoped<IProductRepository, ProductRepository>();
-        services.AddScoped<IRecipeDetailRepository, RecipeDetailRepository>();
-        services.AddScoped<IRecipeRepository, RecipeRepository>();
+        services.Scan(scan => scan
+        .FromAssemblies(Assembly.GetExecutingAssembly())
+        .AddClasses(false)
+        .UsingRegistrationStrategy(RegistrationStrategy.Skip)
+        .AsMatchingInterface()
+        .AsImplementedInterfaces()
+        .WithScopedLifetime()
+        );
+
         services.AddScoped<IUnitOfWork>(srv => srv.GetRequiredService<AppDbContext>());
 
         services.AddIdentity<AppUser, IdentityRole<Guid>>(cfr =>

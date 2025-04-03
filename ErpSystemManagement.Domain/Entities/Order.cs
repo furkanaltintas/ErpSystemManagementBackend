@@ -6,9 +6,9 @@ public class Order : BaseEntity
 {
     public Guid CustomerId { get; set; }
     public string OrderNumber { get; set; } = string.Empty;
-    public DateTime Date { get; set; }
-    public DateTime DeliveryDate { get; set; }
-    public string Status { get; set; } = "Pending";
+    public DateOnly Date { get; set; }
+    public DateOnly DeliveryDate { get; set; }
+    public string Status { get; set; } = "Bekliyor";
 
     public Customer? Customer { get; set; }
     public ICollection<OrderDetail>? Details { get; set; }

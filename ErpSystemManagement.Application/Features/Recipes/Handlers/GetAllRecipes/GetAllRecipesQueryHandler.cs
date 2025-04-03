@@ -16,7 +16,7 @@ class GetAllRecipesQueryHandler(
             .GetAll()
             .Include(r => r.Product)
             .OrderBy(r => r.Product!.Name)
-            .ToListAsync(cancellationToken); 
+            .ToListAsync(cancellationToken);
         return DomainResult.Success(recipes);
     }
 }

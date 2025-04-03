@@ -18,11 +18,7 @@ class OrderProfile : Profile
             })));
 
         CreateMap<UpdateOrderCommand, Order>()
-            .ForMember(member => member.Details, options => options.MapFrom(source => source.Details.Select(o => new OrderDetail
-            {
-                Price = o.Price,
-                ProductId = o.ProductId,
-                Quantity = o.Quantity
-            })));
+            .ForMember(member => member.Details, options => options.Ignore()) // Detay kısmını mapleme
+            .ReverseMap();
     }
 }

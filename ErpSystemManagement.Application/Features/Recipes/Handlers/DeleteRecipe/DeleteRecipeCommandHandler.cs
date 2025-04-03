@@ -9,7 +9,7 @@ namespace ErpSystemManagement.Application.Features.Recipes.Handlers.DeleteRecipe
 {
     class DeleteRecipeCommandHandler(
         IRecipeRepository recipeRepository,
-        IUnitOfWork unitOfWork): IRequestHandler<DeleteRecipeCommand, IDomainResult<string>>
+        IUnitOfWork unitOfWork) : IRequestHandler<DeleteRecipeCommand, IDomainResult<string>>
     {
         public async Task<IDomainResult<string>> Handle(DeleteRecipeCommand request, CancellationToken cancellationToken)
         {

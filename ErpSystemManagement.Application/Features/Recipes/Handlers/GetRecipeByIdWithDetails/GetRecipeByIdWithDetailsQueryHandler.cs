@@ -7,8 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ErpSystemManagement.Application.Features.Recipes.Handlers.GetRecipeByIdWithDetails;
 
-class GetRecipeByIdWithDetailsQueryHandler(
-    IRecipeRepository recipeRepository) : IRequestHandler<GetRecipeByIdWithDetailsQuery, IDomainResult<Recipe>>
+class GetRecipeByIdWithDetailsQueryHandler(IRecipeRepository recipeRepository) : IRequestHandler<GetRecipeByIdWithDetailsQuery, IDomainResult<Recipe>>
 {
     public async Task<IDomainResult<Recipe>> Handle(GetRecipeByIdWithDetailsQuery request, CancellationToken cancellationToken)
     {

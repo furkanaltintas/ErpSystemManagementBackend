@@ -19,7 +19,7 @@ class CreateRecipeCommandHandler(
         Recipe recipe = new()
         {
             ProductId = request.ProductId,
-            Details = request.Details.Select(r => new RecipeDetail() 
+            Details = request.Details.Select(r => new RecipeDetail()
             {
                 ProductId = r.ProductId,
                 Quantity = r.Quantity

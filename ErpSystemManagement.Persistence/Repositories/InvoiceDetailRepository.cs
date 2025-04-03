@@ -5,7 +5,7 @@ using GenericRepository;
 
 namespace ErpSystemManagement.Persistence.Repositories;
 
-public class CustomerRepository : Repository<Customer, AppDbContext>, ICustomerRepository
+public class InvoiceDetailRepository : Repository<InvoiceDetail, AppDbContext>, IInvoiceDetailRepository
 {
-    public CustomerRepository(AppDbContext context) : base(context) { }
+    public InvoiceDetailRepository(AppDbContext context) : base(context) { }
 }

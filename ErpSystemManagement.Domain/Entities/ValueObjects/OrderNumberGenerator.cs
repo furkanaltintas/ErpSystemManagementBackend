@@ -14,7 +14,7 @@ public class OrderNumberGenerator(IOrderRepository orderRepository)
 
         int nextNumber = 1; // İlk sipariş için
 
-        if(!string.IsNullOrEmpty(lastOrderNumber))
+        if (!string.IsNullOrEmpty(lastOrderNumber))
         {
             //FA250402123 -> Sondaki 3 basamaklı kısmı al ve arttır
             string lastNumberPart = lastOrderNumber.Substring(8);

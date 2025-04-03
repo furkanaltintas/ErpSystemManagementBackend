@@ -15,7 +15,7 @@ class DeleteRecipeDetailCommandHandler(
     {
         RecipeDetail? recipeDetail = await recipeDetailRepository.GetByExpressionAsync(r => r.Id == request.Id, cancellationToken);
         if (recipeDetail is null) return DomainResult<string>.Failed("Reçetede bu ürün bulunamadı");
-        
+
         recipeDetailRepository.Delete(recipeDetail);
         await unitOfWork.SaveChangesAsync();
         return DomainResult<string>.Success("Ürün reçeteden başarıyla silindi");

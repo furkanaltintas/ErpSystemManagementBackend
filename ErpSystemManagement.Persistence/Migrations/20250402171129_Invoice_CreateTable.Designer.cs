@@ -4,6 +4,7 @@ using ErpSystemManagement.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ErpSystemManagement.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250402171129_Invoice_CreateTable")]
+    partial class Invoice_CreateTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,9 +200,6 @@ namespace ErpSystemManagement.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("DepotId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("InvoiceId")
                         .HasColumnType("uniqueidentifier");
 
@@ -213,8 +213,6 @@ namespace ErpSystemManagement.Persistence.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DepotId");
 
                     b.HasIndex("InvoiceId");
 
@@ -413,12 +411,6 @@ namespace ErpSystemManagement.Persistence.Migrations
 
             modelBuilder.Entity("ErpSystemManagement.Domain.Entities.InvoiceDetail", b =>
                 {
-                    b.HasOne("ErpSystemManagement.Domain.Entities.Depot", "Depot")
-                        .WithMany()
-                        .HasForeignKey("DepotId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ErpSystemManagement.Domain.Entities.Invoice", null)
                         .WithMany("Details")
                         .HasForeignKey("InvoiceId")
@@ -430,8 +422,6 @@ namespace ErpSystemManagement.Persistence.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Depot");
 
                     b.Navigation("Product");
                 });

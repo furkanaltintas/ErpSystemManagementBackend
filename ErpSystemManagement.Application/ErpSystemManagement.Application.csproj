@@ -13,6 +13,9 @@
     <Folder Include="Features\Depots\Rules\" />
     <Folder Include="Features\Depots\Validators\CreateDepotValidator\" />
     <Folder Include="Features\Depots\Validators\UpdateCustomerValidator\" />
+    <Folder Include="Features\Invoices\Validators\" />
+    <Folder Include="Features\Invoices\Rules\" />
+    <Folder Include="Features\Invoices\Constants\" />
     <Folder Include="Features\Orders\Validators\" />
     <Folder Include="Features\Orders\Rules\" />
     <Folder Include="Features\Orders\Constants\" />

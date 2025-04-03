@@ -27,6 +27,7 @@ public class RecipesController : ApiController
     public async Task<IActionResult> Delete(DeleteRecipeCommand deleteRecipeCommand, CancellationToken cancellationToken) =>
         await HandleRequest(deleteRecipeCommand, cancellationToken);
 
+
     [HttpPost]
     public async Task<IActionResult> GetByIdWithDetails(GetRecipeByIdWithDetailsQuery getRecipeByIdWithDetailsQuery, CancellationToken cancellationToken) =>
         await HandleRequest(getRecipeByIdWithDetailsQuery, cancellationToken);

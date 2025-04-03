@@ -12,31 +12,23 @@ public class DepotsController : ApiController
 {
     public DepotsController(IMediator mediator) : base(mediator) { }
 
-
+    
     [HttpPost]
-    public async Task<IActionResult> GetAll(GetAllDepotsQuery getAllDepotsQuery, CancellationToken cancellationToken)
-    {
-        return await HandleRequest(getAllDepotsQuery, cancellationToken);
-    }
+    public async Task<IActionResult> GetAll(GetAllDepotsQuery getAllDepotsQuery, CancellationToken cancellationToken) =>
+        await HandleRequest(getAllDepotsQuery, cancellationToken);
 
 
     [HttpPost]
-    public async Task<IActionResult> Create(CreateDepotCommand createDepotCommand, CancellationToken cancellationToken)
-    {
-        return await HandleRequest(createDepotCommand, cancellationToken);
-    }
+    public async Task<IActionResult> Create(CreateDepotCommand createDepotCommand, CancellationToken cancellationToken) =>
+        await HandleRequest(createDepotCommand, cancellationToken);
 
 
     [HttpPost]
-    public async Task<IActionResult> Update(UpdateDepotCommand updateDepotCommand, CancellationToken cancellationToken)
-    {
-        return await HandleRequest(updateDepotCommand, cancellationToken);
-    }
+    public async Task<IActionResult> Update(UpdateDepotCommand updateDepotCommand, CancellationToken cancellationToken) =>
+        await HandleRequest(updateDepotCommand, cancellationToken);
 
 
     [HttpPost]
-    public async Task<IActionResult> Delete(DeleteDepotCommand deleteDepotCommand, CancellationToken cancellationToken)
-    {
-        return await HandleRequest(deleteDepotCommand, cancellationToken);
-    }
+    public async Task<IActionResult> Delete(DeleteDepotCommand deleteDepotCommand, CancellationToken cancellationToken) =>
+        await HandleRequest(deleteDepotCommand, cancellationToken);
 }

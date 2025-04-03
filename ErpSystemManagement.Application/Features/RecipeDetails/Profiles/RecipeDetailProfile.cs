@@ -1,8 +1,8 @@
-﻿using ErpSystemManagement.Application.Dtos;
-using ErpSystemManagement.Domain.Entities;
-using AutoMapper;
+﻿using AutoMapper;
+using ErpSystemManagement.Application.Dtos;
 using ErpSystemManagement.Application.Features.RecipeDetails.Commands.CreateRecipeDetail;
 using ErpSystemManagement.Application.Features.RecipeDetails.Commands.UpdateRecipeDetail;
+using ErpSystemManagement.Domain.Entities;
 
 namespace ErpSystemManagement.Application.Features.RecipeDetails.Profiles;
 

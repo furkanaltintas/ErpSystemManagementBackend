@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using ErpSystemManagement.Domain.Entities.ValueObjects;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -18,6 +19,10 @@ public static class DependencyInjection
         });
 
         services.AddValidatorsFromAssembly(assembly);
+
+
+        services.AddScoped<OrderNumberGenerator>();
+
 
         return services;
     }

@@ -26,7 +26,7 @@ class UpdateRecipeDetailCommandHandler(
             r.RecipeId == recipeDetail.RecipeId)
             .FirstOrDefaultAsync(cancellationToken);
 
-        if(oldRecipeDetail is not null)
+        if (oldRecipeDetail is not null)
         {
             recipeDetailRepository.Delete(recipeDetail);
             oldRecipeDetail.Quantity += request.Quantity;

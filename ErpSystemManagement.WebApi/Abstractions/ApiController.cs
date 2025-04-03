@@ -13,9 +13,9 @@ public class ApiController : ControllerBase
 
     public ApiController(IMediator mediator) { _mediator = mediator; }
 
-    protected async Task<IActionResult> HandleRequest<T>(IRequest<IDomainResult<T>> request, CancellationToken cancellationToken)
-    {
-        IDomainResult<T> result = await _mediator.Send(request, cancellationToken);
-        return this.DomResult(result);
-    }
+    protected async Task<IActionResult> HandleRequest<T>(IRequest<IDomainResult<T>> request, CancellationToken cancellationToken) =>
+        this.DomResult(await _mediator.Send(request, cancellationToken));
+
+    protected async Task<IActionResult> HandleRequest<T>(IRequest<T> request, CancellationToken cancellationToken) =>
+        this.Result(await _mediator.Send(request, cancellationToken));
 }

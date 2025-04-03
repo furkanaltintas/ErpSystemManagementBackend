@@ -18,7 +18,7 @@ class UpdateCustomerCommandHandler(
         Customer? customer = await customerRepository.GetByExpressionWithTrackingAsync(c => c.Id == request.Id, cancellationToken);
         if (customer is null) return DomainResult<string>.Failed("Müşteri bulunamadı");
 
-        if(customer.TaxNumber != request.TaxNumber)
+        if (customer.TaxNumber != request.TaxNumber)
         {
             bool isTaxNumberExists = await customerRepository.AnyAsync(c => c.TaxNumber == request.TaxNumber);
             if (isTaxNumberExists) return DomainResult<string>.Failed("Vergi numarası daha önce kaydedilmiş");
